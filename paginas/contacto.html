@@ -1,0 +1,51 @@
+    <!-- CONTACTO -->
+    <section class="section section--first" id="contacto">
+      <div class="container contact">
+        <div class="contact__info reveal">
+          <p class="kicker">Contacto</p>
+          <h1 class="contact__title">Hablemos de tu proyecto</h1>
+          <p class="muted">Cuéntanos qué necesitas: software, red, seguridad, servidores o equipo. Te respondemos con un diagnóstico y una propuesta clara.</p>
+          <ul class="contact__list">
+            <li><span class="dot dot--blue"></span> <a id="emailLink" href="mailto:erick.david.p@hotmail.com">erick.david.p@hotmail.com</a></li>
+            <li><span class="dot dot--red"></span> <a id="waLink" href="https://wa.me/524461157374" target="_blank" rel="noopener">WhatsApp: 446 115 7374</a></li>
+            <li><span class="dot dot--blue"></span> <a id="telLink" href="tel:+524461157374">Llamar: 446 115 7374</a></li>
+          </ul>
+        </div>
+
+        <form class="form reveal" id="contactForm" novalidate>
+          <div class="form__row">
+            <label>Nombre
+              <input type="text" name="nombre" required autocomplete="name">
+            </label>
+            <label>Correo
+              <input type="email" name="correo" required autocomplete="email">
+            </label>
+          </div>
+          <label>Tipo de servicio
+            <select name="servicio" required>
+              <option value="">Selecciona una opción</option>
+              <option>Software a la medida</option>
+              <option>Página web o tienda en línea</option>
+              <option>Modificación o reestructuración de un sistema</option>
+              <option>Redes y cableado estructurado</option>
+              <option>Ciberseguridad</option>
+              <option>Servidores y administración de sistemas</option>
+              <option>Venta de equipo</option>
+              <option>Póliza de soporte</option>
+              <option>Otro</option>
+            </select>
+          </label>
+          <label>Cuéntanos sobre tu proyecto
+            <textarea name="mensaje" rows="5" required></textarea>
+          </label>
+          <!-- Trampa anti-spam: los humanos no la ven -->
+          <input type="text" name="_honey" class="form__honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="form__check">
+            <input type="checkbox" name="acepto" required>
+            <span>He leído y acepto el <a href="aviso-privacidad.html" target="_blank">aviso de privacidad</a>.</span>
+          </label>
+          <button type="submit" class="btn btn--primary btn--block" id="formSubmit">Enviar mensaje</button>
+          <p class="form__status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>

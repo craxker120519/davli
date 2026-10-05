@@ -4,14 +4,14 @@ const CONFIG = {
   whatsapp: "524461157374", // código de país + número, sin espacios ni "+"
 };
 
-// Enlaces de contacto
-const emailLink = document.getElementById("emailLink");
-emailLink.textContent = CONFIG.email;
-emailLink.href = `mailto:${CONFIG.email}`;
+const $ = (id) => document.getElementById(id);
+
+// Enlaces de contacto (no todas las páginas tienen todos)
 const waUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Hola DAVLI, me interesa cotizar un proyecto.")}`;
-document.getElementById("waLink").href = waUrl;
-document.getElementById("waFloat").href = waUrl;
-document.getElementById("year").textContent = new Date().getFullYear();
+if ($("emailLink")) { $("emailLink").textContent = CONFIG.email; $("emailLink").href = `mailto:${CONFIG.email}`; }
+if ($("waLink")) $("waLink").href = waUrl;
+if ($("waFloat")) $("waFloat").href = waUrl;
+if ($("year")) $("year").textContent = new Date().getFullYear();
 
 // Nav: fondo al hacer scroll + menú móvil
 const nav = document.getElementById("nav");
@@ -26,6 +26,14 @@ toggle.addEventListener("click", () => {
   const open = links.classList.toggle("is-open");
   toggle.setAttribute("aria-expanded", open);
 });
+// Submenú "Servicios": se abre con clic (útil en pantallas táctiles)
+document.querySelectorAll(".nav__drop > button").forEach((btn) =>
+  btn.addEventListener("click", () => btn.parentElement.classList.toggle("is-open"))
+);
+document.addEventListener("click", (e) => {
+  document.querySelectorAll(".nav__drop.is-open").forEach((d) => { if (!d.contains(e.target)) d.classList.remove("is-open"); });
+});
+
 links.querySelectorAll("a").forEach((a) =>
   a.addEventListener("click", () => {
     links.classList.remove("is-open");
@@ -60,16 +68,16 @@ document.querySelectorAll(".card").forEach((card) =>
 
 // Formulario: envía el mensaje directo al correo con FormSubmit (formsubmit.co).
 // La primera vez que alguien lo use, FormSubmit manda un correo de activación a CONFIG.email.
-const form = document.getElementById("contactForm");
-const status = document.getElementById("formStatus");
-const submitBtn = document.getElementById("formSubmit");
+const form = $("contactForm");
+const status = $("formStatus");
+const submitBtn = $("formSubmit");
 
 const setStatus = (type, text) => {
   status.className = `form__status ${type}`;
   status.textContent = text;
 };
 
-form.addEventListener("submit", async (e) => {
+if (form) form.addEventListener("submit", async (e) => {
   e.preventDefault();
   let valid = true;
   form.querySelectorAll("[required]").forEach((f) => {
