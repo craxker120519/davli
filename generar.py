@@ -13,6 +13,8 @@ URL_BASE = "https://craxker120519.github.io/davli/"  # cambiar al conectar el do
 FECHA = "2026-10-05"
 
 ICONOS = {
+    "soporte": '<path d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/>',
+    "consultoria": '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>',
     "software": '<path d="M8 6 2 12l6 6M16 6l6 6-6 6M14 4l-4 16"/>',
     "redes": '<path d="M12 3v6M5 21v-4h14v4M12 13v4M8 9h8v4H8z"/>',
     "ciberseguridad": '<path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/>',
@@ -21,25 +23,31 @@ ICONOS = {
 }
 
 SERVICIOS = [
-    ("software.html", "software", "Software y web"),
-    ("redes.html", "redes", "Redes y cableado"),
+    ("software.html", "software", "Software y automatización"),
+    ("servidores.html", "servidores", "Infraestructura y servidores"),
+    ("redes.html", "redes", "Redes y conectividad"),
     ("ciberseguridad.html", "ciberseguridad", "Ciberseguridad"),
-    ("servidores.html", "servidores", "Servidores y sistemas"),
+    ("soporte.html", "soporte", "Soporte y administración TI"),
+    ("consultoria.html", "consultoria", "Consultoría y proyectos"),
     ("equipos.html", "equipos", "Venta de equipo"),
 ]
 
 # archivo -> (título de la pestaña, descripción, prioridad en sitemap)
 PAGINAS = {
-    "index.html": ("DAVLI | Soluciones tecnológicas integrales para empresas",
+    "index.html": ("DAVLI | Soluciones tecnológicas integrales",
                    "Software a la medida, redes y cableado estructurado, ciberseguridad, administración de servidores y venta de equipo. Ingenieros que planean, documentan y entregan trabajo de calidad.", "1.0"),
-    "software.html": ("Desarrollo de software y páginas web | DAVLI",
-                      "Creamos, modificamos y reestructuramos software y páginas web a la medida de su negocio.", "0.9"),
-    "redes.html": ("Redes y cableado estructurado | DAVLI",
-                   "Cableado estructurado certificado y documentado, redes con Cisco, Ubiquiti, UniFi y Fortinet, Wi-Fi empresarial y enlaces.", "0.9"),
+    "software.html": ("Software y automatización | DAVLI",
+                      "Desarrollo de software a la medida, páginas web, integraciones y automatización de procesos para su empresa.", "0.9"),
+    "redes.html": ("Redes y conectividad | DAVLI",
+                   "Cableado estructurado certificado y documentado, redes con Cisco, Ubiquiti, UniFi, MikroTik y Fortinet, Wi-Fi empresarial y enlaces.", "0.9"),
     "ciberseguridad.html": ("Ciberseguridad para empresas | DAVLI",
                             "Firewalls Palo Alto y Fortinet, VPN, segmentación, auditorías, respaldos y protección contra ransomware.", "0.9"),
-    "servidores.html": ("Administración de servidores y sistemas | DAVLI",
-                        "Instalación y administración de servidores Windows y Linux, virtualización, respaldos, monitoreo y soporte.", "0.9"),
+    "servidores.html": ("Infraestructura y servidores | DAVLI",
+                        "Instalación y administración de servidores Windows y Linux, virtualización, almacenamiento, respaldos y monitoreo.", "0.9"),
+    "soporte.html": ("Soporte y administración TI | DAVLI",
+                     "Mesa de ayuda, pólizas de soporte, mantenimiento preventivo y administración de usuarios y equipos para su empresa.", "0.9"),
+    "consultoria.html": ("Consultoría y proyectos de TI | DAVLI",
+                         "Diagnóstico tecnológico, planeación, gestión de proyectos, migraciones y documentación de infraestructura.", "0.9"),
     "equipos.html": ("Venta de equipo de cómputo y redes a medida | DAVLI",
                      "Computadoras, servidores, switches, access points, firewalls y UPS dimensionados de acuerdo con su necesidad real.", "0.8"),
     "proyectos.html": ("Proyectos | DAVLI",
@@ -100,7 +108,7 @@ def pie():
           <img src="assets/rabbit.webp" alt="" width="32" height="28">
           <span>DAVLI</span>
         </a>
-        <p class="muted small footer__tag">Soluciones tecnológicas integrales: software, redes, seguridad, servidores y equipo.</p>
+        <p class="muted small footer__tag">Soluciones tecnológicas integrales. Una sola empresa para toda su tecnología.</p>
       </div>
       <div>
         <h4>Servicios</h4>
@@ -128,7 +136,7 @@ def pie():
     </div>
     <div class="container footer__bottom">
       <p class="muted small">© <span id="year">2026</span> DAVLI. Todos los derechos reservados.</p>
-      <p class="muted small">Software <span class="dot dot--blue"></span> Tecnología <span class="dot dot--red"></span> Soluciones</p>
+      <p class="muted small">Soluciones <span class="dot dot--blue"></span> Tecnológicas <span class="dot dot--red"></span> Integrales</p>
     </div>
   </footer>
 
