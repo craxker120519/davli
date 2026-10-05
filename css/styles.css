@@ -536,3 +536,55 @@ h3 { font-size: 1.05rem; }
 .hero__glow { opacity: .5; }
 /* El logo ya tiene fondo transparente: sin mezcla ni máscara */
 .hero__logo img { mix-blend-mode: normal; -webkit-mask-image: none; mask-image: none; }
+
+/* =====================================================================
+   Ajustes para celulares
+   ===================================================================== */
+/* Ningún elemento decorativo puede provocar desplazamiento lateral */
+html { overflow-x: clip; }
+.page-hero, .hero, .section, .cta { overflow-x: clip; }
+.page-hero::after { width: min(600px, 100%); }
+
+/* Palabras largas (p. ej. "reestructuramos") nunca se salen de la pantalla */
+h1, h2, h3, .lead, p, summary { overflow-wrap: break-word; hyphens: auto; }
+
+/* Rejillas: las columnas pueden encogerse por debajo del tamaño de su contenido */
+.about__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.about, .manifesto, .split, .contact, .hero__inner { min-width: 0; }
+.about > *, .manifesto > *, .split > *, .contact > *, .hero__inner > * { min-width: 0; }
+
+@media (max-width: 560px) {
+  h1 { font-size: clamp(1.45rem, 7.2vw, 2rem); }
+  .page-hero h1 { font-size: clamp(1.4rem, 7vw, 1.9rem); }
+  h2, .manifesto__intro h2 { font-size: clamp(1.25rem, 6vw, 1.6rem); }
+  .page-hero { padding: 104px 0 40px; }
+  .lead { font-size: 1rem; }
+  .eyebrow { font-size: .62rem; letter-spacing: .1em; }
+  .hero__cta { flex-direction: column; align-items: stretch; }
+  .hero__cta .btn { width: 100%; }
+  .section__head { margin-bottom: 2.2rem; }
+  .card, .mini, .panel, .pillar, .stat { padding: 1.25rem; }
+  .pillar { gap: .8rem; }
+  .stat__num { font-size: 1.6rem; }
+  .stat__label { font-size: .8rem; }
+  .steps { gap: 2rem; }
+  .brands { gap: .6rem 1.4rem; }
+  .cta__inner h2 { font-size: 1.3rem; }
+  .faq summary { padding: 1rem 2.6rem 1rem 1rem; font-size: .95rem; }
+  .faq details p { padding: 0 1rem 1rem; }
+  .crumbs { font-size: .75rem; }
+  .projects, .areas, .grid-3 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 360px) {
+  .container { width: calc(100% - 24px); }
+  .nav__brand span { font-size: 1rem; }
+  .about__stats { gap: .6rem; }
+  .stat { padding: 1rem .8rem; }
+  .form { padding: 1.1rem; }
+}
+@media (max-width: 360px) { .stat__num { font-size: 1.35rem; } }
+@media (max-width: 560px) {
+  .footer { padding-bottom: 84px; }
+  .wa-float { bottom: max(14px, env(safe-area-inset-bottom)); }
+}
