@@ -7,7 +7,7 @@ const CONFIG = {
 const $ = (id) => document.getElementById(id);
 
 // Enlaces de contacto (no todas las páginas tienen todos)
-const waUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Hola DAVLI, me interesa cotizar un proyecto.")}`;
+const waUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Buen día, DAVLI. Me interesa solicitar una cotización.")}`;
 if ($("emailLink")) { $("emailLink").textContent = CONFIG.email; $("emailLink").href = `mailto:${CONFIG.email}`; }
 if ($("waLink")) $("waLink").href = waUrl;
 if ($("waFloat")) $("waFloat").href = waUrl;
@@ -88,7 +88,7 @@ if (form) form.addEventListener("submit", async (e) => {
     if (bad) valid = false;
   });
   if (!valid) {
-    setStatus("err", "Revisa los campos marcados.");
+    setStatus("err", "Por favor, revise los campos marcados.");
     return;
   }
 
@@ -114,10 +114,10 @@ if (form) form.addEventListener("submit", async (e) => {
     });
     const json = await res.json().catch(() => ({}));
     if (!res.ok || json.success === "false" || json.success === false) throw new Error(json.message || res.status);
-    setStatus("ok", "¡Gracias! Recibimos tu mensaje y te responderemos pronto.");
+    setStatus("ok", "Gracias. Hemos recibido su mensaje y le responderemos a la brevedad.");
     form.reset();
   } catch {
-    setStatus("err", "No se pudo enviar. Escríbenos por WhatsApp o al correo de la izquierda.");
+    setStatus("err", "No fue posible enviar el mensaje. Le pedimos contactarnos por WhatsApp o por correo electrónico.");
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = "Enviar mensaje";
