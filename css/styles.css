@@ -380,3 +380,14 @@ h3 { font-size: 1.05rem; }
   .hero { padding-top: 90px; }
   .wa-float { right: 14px; bottom: 14px; width: 52px; height: 52px; }
 }
+
+/* Imagen de proyecto */
+.project { padding-top: 0; }
+.project__img {
+  width: calc(100% + 4rem); max-width: none; margin: 0 -2rem 1.4rem; aspect-ratio: 8 / 5; object-fit: cover; object-position: top;
+  border-bottom: 1px solid var(--border); transition: transform .4s ease;
+}
+.project:hover .project__img { transform: scale(1.03); }
+@media (max-width: 560px) {
+  .project__img { width: calc(100% + 3rem); margin: 0 -1.5rem 1.2rem; }
+}
